@@ -93,6 +93,9 @@ uint8_t DtaDevLinuxNvme::sendCmd(ATACOMMAND cmd, uint8_t protocol, uint16_t comI
 		nvme_cmd.addr = (__u64)buffer;
 	}
 
+
+    IFLOG(D4) { fprintf(stderr, "About to send this cmd buffer:\n"); DtaHexDump(&nvme_cmd, sizeof(nvme_cmd)); }
+
 	err = ioctl(fd, NVME_IOCTL_ADMIN_CMD, &nvme_cmd);
 	if (err < 0)
 		return errno;

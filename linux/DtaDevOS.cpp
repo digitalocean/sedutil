@@ -157,7 +157,7 @@ int  DtaDevOS::diskScan()
 		else
                     printf("%s", " No  ");
                 
-                printf("%s %s\n",d->getModelNum(),d->getFirmwareRev());
+                printf(" Model: %s  FW: %s  SN: %s\n",d->getModelNum(),d->getFirmwareRev(), d->getSerialNum());
                 delete d;
           }
 	printf("No more disks present ending scan\n");
